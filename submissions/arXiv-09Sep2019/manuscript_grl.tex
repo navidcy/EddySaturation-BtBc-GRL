@@ -1,0 +1,1962 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AGUJournalTemplate.tex: this template file is for articles formatted with LaTeX
+%
+% This file includes commands and instructions
+% given in the order necessary to produce a final output that will
+% satisfy AGU requirements, including customized APA reference formatting.
+%
+% You may copy this file and give it your
+% article name, and enter your text.
+%
+%
+% Step 1: Set the \documentclass
+%
+% There are two options for article format:
+%
+% PLEASE USE THE DRAFT OPTION TO SUBMIT YOUR PAPERS.
+% The draft option produces double spaced output.
+%
+
+%% To submit your paper:
+
+%% To submit your paper:
+% \documentclass[draft]{agujournal2019}
+\documentclass{agujournal2019}
+
+\usepackage{lineno,layouts,microtype}
+
+
+% \linenumbers
+
+\newcommand{\navidcomment}[1]{{\color{red} [#1]}}
+\newcommand{\andycomment}[1]{{\color{Green} [#1]}}
+
+%\usepackage[T1]{fontenc}
+\renewcommand*\familydefault{\sfdefault} 
+\usepackage{sansmath} 
+\sansmath
+
+\newcommand{\mathbfit}[1]{\textbf{\textit{\textsf{#1}}}}
+\usepackage{amsfonts, amssymb, amsmath}
+\usepackage[labelfont=bf]{caption}
+% \usepackage{doi}
+
+\usepackage{comment}
+
+%%%%%%%
+% As of 2018 we recommend use of the TrackChanges package to mark revisions.
+% The trackchanges package adds five new LaTeX commands:
+%
+%  \note[editor]{The note}
+%  \annote[editor]{Text to annotate}{The note}
+%  \add[editor]{Text to add}
+%  \remove[editor]{Text to remove}
+%  \change[editor]{Text to remove}{Text to add}
+%
+% complete documentation is here: http://trackchanges.sourceforge.net/
+%%%%%%%
+
+
+%% Enter journal name below.
+%% Choose from this list of Journals:
+%
+% JGR: Atmospheres
+% JGR: Biogeosciences
+% JGR: Earth Surface
+% JGR: Oceans
+% JGR: Planets
+% JGR: Solid Earth
+% JGR: Space Physics
+% Global Biogeochemical Cycles
+% Geophysical Research Letters
+% Paleoceanography and Paleoclimatology
+% Radio Science
+% Reviews of Geophysics
+% Tectonics
+% Space Weather
+% Water Resources Research
+% Geochemistry, Geophysics, Geosystems
+% Journal of Advances in Modeling Earth Systems (JAMES)
+% Earth's Future
+% Earth and Space Science
+% Geohealth
+%
+% ie, \journalname{Water Resources Research}
+
+\journalname{Geophysical Research Letters}
+
+\usepackage{scalerel, stackengine}
+\setstackEOL{\#}
+\stackMath
+\def\hatgap{2pt}
+\def\subdown{-2pt}
+\newcommand\reallywidehat[2][]{ \renewcommand\stackalignment{l} \stackon[\hatgap]{#2}{ \stretchto{
+    \scalerel*[\widthof{$#2$}]{\kern-.6pt\bigwedge\kern-.6pt}
+    {\rule[-\textheight/2]{1ex}{\textheight}}}
+    {0.5ex}_{\smash{ \belowbaseline[\subdown]{\scriptstyle#1} }}
+}}
+
+% Vector calculus 
+  \newcommand{\p}		{\partial}
+  \newcommand{\bnabla}	{\boldsymbol \nabla}
+  \newcommand{\grad}	{\bnabla}
+\renewcommand{\div}	    {\bnabla \bcdot}
+  \newcommand{\bcdot}	{\boldsymbol \cdot}
+  \newcommand{\lap}		{\triangle}
+
+% Boldsymbols
+\newcommand{\bu}		{\mathbfit u}
+\newcommand{\bx}		{\mathbfit x}
+\newcommand{\bU}		{\mathbfit{U}}
+\newcommand{\bX}		{\mathbfit{X}}
+\newcommand{\bxh}		{\hspace{0.1em} \boldsymbol{\hat x}}
+\newcommand{\byh}		{\hspace{0.1em}\boldsymbol{\hat y}}
+\newcommand{\bzh}		{\hspace{0.1em}\boldsymbol{\hat z}}
+\newcommand{\bnh}		{\hspace{0.1em}\boldsymbol{\hat n}}
+\newcommand{\bxi}		{\ensuremath {\boldsymbol {\xi}}}
+
+% Greek
+\newcommand{\ep}		{\epsilon}
+\newcommand{\om}		{\omega}
+\newcommand{\kap}		{\kappa}
+\newcommand{\sig}		{\sigma}
+\newcommand{\gam}	    {\gamma}
+\newcommand{\lam}		{\lambda}
+
+% Romans
+\newcommand{\ee}		{\mathrm{e}}
+\newcommand{\ii}		{\mathrm{i}}
+\newcommand{\dd}		{{\rm d}}
+\newcommand{\id}		{{\, \rm d}}
+
+% Misc
+\newcommand{\Dt}[1]	    {\mathrm{D}_t #1}
+\newcommand{\half}		{\tfrac{1}{2}}
+\newcommand{\where}	    {\qquad \text{where} \qquad}
+\newcommand{\andand}	{\qquad \text{and} \qquad}
+\newcommand{\com}		{\, ,}
+\newcommand{\per}		{\, .}
+\newcommand{\defn}	    {\ensuremath{\stackrel{\mathrm{def}}{=}}}
+\renewcommand{\equiv} {\ensuremath{\stackrel{\mathrm{def}}{=}}}
+\newcommand{\av}[1]	    {\left \langle {#1} \right \rangle}
+\newcommand{\beq}		{\begin{equation}}
+\newcommand{\eeq}		{\end{equation}}
+
+\newcommand{\Pa}		{\mathrm{N}\,\mathrm{m}^{-2}}
+
+% Eddy saturation
+\newcommand{\rhom} {\rho_{\mathrm{m}}}
+\newcommand{\ws} {\mathrm{WS}}
+\newcommand{\tfs} {\mathrm{TFS}}
+\newcommand{\ifs} {\mathrm{IFS}}
+\newcommand{\bd} {\mathrm{BD}}
+\newcommand{\hb} {h_{\mathrm{bot}}}
+\newcommand{\pb} {p_{\mathrm{bot}}}
+
+
+
+\hypersetup{
+	breaklinks,
+	colorlinks=true,
+	linkcolor=Blue,
+  urlcolor=Purple,
+	citecolor=Purple,
+%	allcolors=black,
+	pdfauthor={N. C. Constantinou and A. McC. Hogg}
+ }
+
+
+\begin{document}
+\justify
+\title{Eddy saturation of the Southern Ocean:\\ a baroclinic versus barotropic perspective}
+
+\authors{
+Navid C. Constantinou\affil{1}\quad and\quad Andrew McC. Hogg\affil{1}
+}
+
+\affiliation{1}{Research School of Earth Sciences and ARC Centre of Excellence for Climate Extremes,\\ Australian National University, Australia}
+
+\correspondingauthor{Navid C. Constantinou}{navid.constantinou@anu.edu.au}
+
+%% Keypoints, final entry on title page.
+
+\begin{keypoints}
+\item An isopycnal layered model, with a varying number of fluid layers, is used to assess relative importance of barotropic and baroclinic processes in the Southern Ocean.
+\item Both baroclinic and barotropic flows exhibit regimes in which mean zonal transport is insensitive to wind stress.
+\item Eddies actively shape the time-mean flow, irrespective of the instabilities from which they originate. 
+\end{keypoints}
+
+%% ------------------------------------------------------------------------ %%
+%
+%  ABSTRACT
+%
+%% ------------------------------------------------------------------------ %%
+
+\begin{abstract}
+``Eddy saturation'' is the regime in which the total time-mean volume transport of an oceanic current is relatively insensitive to the wind stress forcing and is often invoked as a dynamical description of Southern Ocean circulation. We revisit the problem of eddy saturation using a primitive-equations model in an idealized channel setup with bathymetry. We apply only mechanical wind stress forcing; there is no diapycnal mixing or surface buoyancy forcing. Our main aim is to assess the relative importance of two mechanisms for producing eddy saturated states: \emph{(i)}~the commonly invoked baroclinic mechanism that involves the competition of sloping isopycnals and restratification by production of baroclinic eddies, and \emph{(ii)}~the barotropic mechanism, that involves production of eddies through lateral shear instabilities or through the interaction of the barotropic current with bathymetric features. Our results suggest that the barotropic flow-component plays a crucial role in determining the total volume transport.
+
+\noindent \textbf{Plain language summary} \\
+\noindent Wind stress at the surface of the ocean is an important driver of ocean currents. However, what sets up the strength of the currents remains puzzling. The strongest ocean current flows around Antarctica: the Antarctic Circumpolar Current (ACC). It is believed that the ACC is close to a so-called ``eddy saturated'' state, a regime in which changes in the strength of the wind stress forcing do not alter the strength of the mean current. Instead, the swirling oceanic eddy motions that accompany the current are enhanced. Here, we investigate the physics and assess the relative importance of the two mechanisms proposed in the literature to explain this phenomenon: the most commonly invoked baroclinic mechanism and the recently proposed barotropic mechanism that crucially involves the interaction of the oceanic flow with bathymetric features. Our results suggest that the oftentimes ignored depth-averaged (barotropic) component of the ocean flow and its interaction with bathymetry play a dominant role in setting up the strength of the current in certain regimes.
+\end{abstract}
+
+%% ------------------------------------------------------------------------ %%
+%
+%  TEXT
+%
+%% ------------------------------------------------------------------------ %%
+
+\section{Introduction}
+
+The Southern Ocean, and in particular the Antarctic Circumpolar Current (ACC) that connects all  ocean basins, influences the global ocean circulation and the climate \cite{Toggweiler-etal-2006, Talley-2013, Ferrari-etal-2014}. The circulation in the Southern Ocean is fueled by a combination of the strong westerly winds imparting momentum at the ocean's surface and by surface buoyancy forcing. In the last few decades the strength of the westerly winds over the Southern Ocean is increasing as a response to climate-change forcing and ozone depletion \cite{Marshall-2003,Swart-Fyfe-2012,Bracegirdle-etal-2013,Farneti-etal-2015}. Thus, significant effort has been expended to understand how the ACC will respond to this wind increase. However, several questions remain outstanding.
+
+
+One idea that has emerged is that the ocean is in a so-called ``eddy saturated'' state, in which stronger winds do not increase the mean strength of the current. {\color{black}Instead, the additional work done by wind increases the energy of the mesoscale eddies.} This idea was first hypothesized by \citeA{Straub-1993}; since then a series of eddy-resolving ocean models, both idealized and more realistic, have verified that the ACC is close to the so-called ``eddy-saturated'' limit (e.g., \citeA{Hallberg-Gnanadesikan-2001,Tansley-Marshall-2001,Hallberg-Gnanadesikan-2006,Hogg-etal-2008,Farneti-etal-2010,Meredith-etal-2012,Dufour-etal-2012,Munday-etal-2013,Abernathey-Cessi-2014,Marshall-etal-2017}). {\color{black}The eddy-saturation hypothesis is not contradicted by observations \cite{Boning-etal-2008, Firing-etal-2011, Hogg-etal-2015}.}
+
+
+In a seminal paper \citeA{Munk-Palmen-1951} argued that zonal momentum in the Southern Ocean is balanced primarily through `topographic form stress', rather than by bottom drag. Topographic form stress is an inviscid mechanism that couples the ocean to the solid Earth through correlations between the bathymetric slopes and the bottom pressure. Since the work by \citeA{Munk-Palmen-1951} it has been recognized that bathymetry and topographic form stress play a key role in setting the ACC transport. 
+
+
+Similar to topographic form stress, `interfacial form stress' describes the coupling between layers of different density and is responsible for the vertical transfer of momentum between those layers \cite{Johnson-Bryden-1989,Olbers-etal-2004,Ward-Hogg-2011}. In this sense, interfacial form stress requires variation of density in the vertical. The usual notion, which goes back to \citeA{Johnson-Bryden-1989}, is that at equilibrium interfacial form stress transfers eastward momentum downwards from the surface to the bottom of the ocean, where topographic form stress acts to transfer this momentum to the solid Earth. \citeA{Ward-Hogg-2011} demonstrated that when the wind stress at the ocean surface changes, rapid barotropic signals form (within several days); this induces topographic form stress that balances a large fraction of the imparted momentum from the surface directly to the bottom.\footnote{Such a fast barotropic response to changes in the wind can be seen in the Southern Ocean State Estimate \cite{Masich-etal-2015} and it is expected; the wind stress projects directly onto the barotropic mode.} {\color{black}Therefore, a corollary stemming from the work by \citeA{Ward-Hogg-2011} is that the} equilibrium of the sort envisaged by \citeA{Johnson-Bryden-1989} is established when downwards transfer of eastward momentum from the surface balances upwards transfer of westward momentum from the topography.
+
+
+The most common explanation for how eddy-saturated states are established relies on the generation of eddies through baroclinic instability (see, e.g., \citeA{Straub-1993, Nadeau-Straub-2012, Marshall-etal-2017}). The role of bathymetry in setting up the ACC transport is acknowledged in this explanation, although the role of bathymetry in eddy generation is unclear. However, isolated bathymetric features can have a large effect on the transient (time-dependent) eddy field through localized baroclinic instability and also {\color{black}by producing} an associated almost-barotropic standing (time-mean) eddy field pattern \cite{Abernathey-Cessi-2014}. 
+
+
+The baroclinic view of eddy saturation is consistent with the notion that ACC transport is dominated by the `thermal-wind transport' -- the transport that is diagnosed from the density field alone{\color{black}, i.e., by integrating the thermal-wind balance twice} assuming zero velocity at the bottom of the ocean. Thus, thermal-wind transport can be easily inferred from hydrography measurements of the density. Furthermore, the thermal-wind transport is related to baroclinic instability, since the vertical shear  fuels production of eddies through baroclinic instability. Therefore, considerable effort has been put in explaining why the `thermal-wind' transport of the ACC is saturated (see, e.g., \citeA{Marshall-etal-2017}).
+
+
+However, the notion of zero mean flow at the bottom of the ocean (as the thermal-wind transport assumes) has been, recently, challenged. \citeA{Donohue-etal-2016} made detailed measurements at the ocean floor of Drake Passage (cDrake experiment) and found time-mean\footnote{Time-mean calculated as the average over the four years that the cDrake experiment was in operation.} bottom flows as strong as about 0.1$\,\text{m}\,\text{s}^{-1}$. Thus, the bottom flow can substantially contribute to the total transport. Characteristically, the results by \citeA{Donohue-etal-2016} resulted in the `nominal' value of the Drake Passage transport increasing from around 130$\,\text{Sv}$ to about 170$\,\text{Sv}$ ($\text{Sv}=10^6\,\text{m}^3\,\text{s}^{-1}$).  Similar findings regarding the importance of bottom flows in the Southern Ocean were also made from satellite altimetry and output from the Southern Ocean State Estimate \cite{Rintoul-etal-2014, PenaMolino-etal-2014, Masich-etal-2015}. These findings argue that, although the focus has been for long centered around the thermal-wind transport, the barotropic component of the flow may play an important role in setting up the ACC transport. 
+
+In addition to the evidence for strong bottom flows, some recent work has emphasized the importance of the bathymetry in setting up standing meanders in the course of the ACC {\color{black}and in producing strong interaction between barotropic and baroclinic fluid motions} \cite{Youngs-etal-2017, Barthel-etal-2017}. Furthermore, these meanders play a crucial role in balancing the momentum through topographic form stress and thus determining the ACC transport \cite{Thompson-NaveiraGarabato-2014,Katsumata-2017}. These papers further argue for the importance of the barotropic mode in setting up the strength of the transport. Recent work has highlighted that eddy-saturated states can be obtained even without any baroclinicity, i.e., in a barotropic ocean of constant density \cite{Constantinou-Young-2017, Constantinou-2018}. For the establishment of this `barotropic eddy saturation' the bathymetry plays a crucial role. Without any baroclinicity the ocean must rely on instabilities due to lateral shear of the flow or due to the interaction of the flow with bathymetric features \cite{Hart-1979, Charney-Flierl-1980}. 
+
+In this work, we examine the relative importance of the barotropic and baroclinic processes in establishing an eddy-saturated transport. We use a primitive-equations model in an idealized zonally re-entrant channel that is forced solely by wind stress. {\color{black}There is no diapycnal mixing or surface buoyancy forcing.} With this setup we depart from the quasi-geostrophic approach taken by \citeA{Constantinou-2018}, while our model remains computationally tractable  to enable us to span a wide range in parameter space. An important advantage of using an isopycnal layered model is that we can vary the stratification in a self-consistent manner that allows us to identify the contributions of baroclinicity in setting up the mean transport.
+
+
+
+
+\section{Setup}
+
+\begin{figure}[t]
+\centering
+\noindent\includegraphics[width=0.85\textwidth]{domaindensities}
+\vspace*{-1em}\caption{(a) The meridional structure of the imposed wind stress. (b) The bathymetry; top~($x$--$y$) and side ($x$--$z$) view. (c)-(f) The layered discretizations of the reference density $\rho(z)$ (shown in solid gray). Dashed horizontal lines depict the rest-heights of the various fluid layers while vertical solid lines denote the mean density of the corresponding fluid layer.}\label{fig:domain}\vspace*{-4em}
+\end{figure}
+
+
+We use the Modular Ocean Model version~6 (MOM6)~\cite{Adcroft-etal-2019-mom6} to solve the primitive equations in isopycnal coordinates under the Boussinesq approximation and with a free surface. The model is set up in a zonally re-entrant channel on a beta-plane. The channel is $3200\,\mathrm{km}$ long in the zonal direction, $1600\,\mathrm{km}$ wide in the meridional direction, $4\,\mathrm{km}$ deep, and contains several Gaussian ridges with maximum height of $400\,\mathrm{m}$ and full-width-at-half-maximum of $165\,\mathrm{km}$; see figure~\ref{fig:domain}(b) for details. The horizontal grid cells are squares with $4\,\mathrm{km}$ grid spacing. The Coriolis parameter is $f=f_0+\beta y$ with $f_0=-10^{-4}\,\mathrm{s}^{-1}$ and $\beta=1.5\times 10^{-11}\,\mathrm{m}^{-1}\,\mathrm{s}^{-1}$; these values are typical of the Southern Ocean. We include frictional quadratic bottom drag {\color{black}with coefficient 0.003}, biharmonic lateral viscosity {\color{black}with coefficient $1.5\times10^9\,\mathrm{m}^4\,\mathrm{s}^{-1}$}, and free-slip {\color{black}insulating} sidewalls. We force the model with an imposed steady eastward wind stress that is zonally symmetric and has a meridional structure 
+\begin{linenomath*}
+\begin{equation}
+    \tau(y) = \tau_0 \sin^2 \left(\frac{\pi y}{3L_y/4}\right),\quad\text{for } 0\le y\le \frac{3}{4}L_y, \label{eq:windstress}
+\end{equation} 
+\end{linenomath*}
+shown in figure~\ref{fig:domain}(a). 
+
+A nominal value for wind stress magnitude over the Southern Ocean is about 0.15$\,\Pa$ \cite{Risien-Chelton-2008}. Given the idealization of the wind stress~\eqref{eq:windstress} (steady forcing; no time-variability) and also the difference in the latitudinal extent of the forcing, we span four orders of magnitude in our experiments: $10^{-3}\,\Pa\lessapprox \tau_0\lessapprox 10\,\Pa$. This approach ensures that we cover realistic parameter regimes while also pushing the system to its limits.
+
+
+
+The density profile is assumed to follow an exponential form,
+\begin{linenomath*}
+\begin{equation}
+\rho(z) = \rho_0+ \Delta\rho \, (1-\ee^{z/d}),\quad -H\le z\le 0,
+\end{equation} 
+\end{linenomath*} 
+with $\rho_0=1026.89\,\mathrm{kg}\,\mathrm{m}^{-3}$, $\Delta\rho=1.20\,\mathrm{kg}\,\mathrm{m}^{-3}$, and $d=950\,\mathrm{m}$.  Using a least-squares-fit %\footnote{In more detail, an $n$-layer discretization into layers with rest heights $h_1,\dots,h_n$ implies layer densities $\rho_j \equiv \int_{h_{j+1/2}}^{h_{j-1/2}}\rho(z')\,\mathrm{d}z'/h_j$, where $h_{j+1/2}\equiv -\sum_{k=1}^j h_k$ is the interface depth between layers $j$ and $j+1$. We pick the fluid layer rest heights $h_j$ so that the quantity $\sum_{j=1}^n \int_{h_{j+1/2}}^{h_{j-1/2}}[\rho(z')-\rho_j]^2\,\mathrm{d}z'$ is minimized.}
+we discretize this continuous density profile into $n$ fluid layers, where $n=1,2,3,4$ (figures~\ref{fig:domain}\mbox{(c)-(f)}). 
+The discretization is designed to minimize variation in the first Rossby radius of deformation  with the number of layers.
+In each case the first Rossby radius is  $20\pm 1\,\mathrm{km}$; the continuous density profile~$\rho(z)$ implies a deformation radius of $19.3\,\mathrm{km}$ \cite{LaCasce-2012}. These values of Rossby radius lie within the range found across the Southern Ocean \cite{Chelton-etal-1998}. 
+
+This self-consistent manner of increasing fluid layers to approach the continuous density structure, $\rho(z)$, allows us to isolate the barotropic dynamics {\color{black} when $n=1$ from the combined effect of barotropic and baroclinic dynamics when $n\ge 2$}. We then  investigate the effects of these dynamics on the structure of the flow and on the response of the mean current to wind stress forcing. In the following sections, we refer to the  density discretization as `$n$-layer configuration'. On the other hand, flow in the middle layer of the 3-layer configuration is referred to as `the layer 2 flow'.
+
+
+\section{Results}
+
+All simulations presented are well-equilibrated; {\color{black}the time series of kinetic energy in each layer and potential energy for each interface reached statistical stationarity}. The equilibration times differ from case to case. For example, barotropic single-layer runs reach statistical equilibrium about 5 years after starting from rest, while weakly forced ($\tau_0<0.01\,\Pa$) baroclinic runs need up to 500 years to spin up. After the flow equilibrates, we average (for at least 30 years) to obtain the time-mean fields.
+
+
+\subsection{Total time-mean transport}\label{sec:transport}
+
+Figure~\ref{fig:transport} shows the equilibrated time-mean zonal transport of the channel as a function of the wind stress maximum ($\tau_0$) for each configuration. The total transport is computed as the time-mean of $\sum_k\int_0^{L_y} u_k h_k\,\mathrm{d}y$ evaluated at a fixed $x$, where $u$ is the zonal flow, $h$ is the layer depth, and subscript $k$ denotes each fluid layer with $k=1$ corresponding to the top layer.\footnote{For a detailed exposition of the primitive equations in isopycnal coordinates the reader is referred to the paper by \citeA{Ward-Hogg-2011}.}
+
+\begin{figure}
+\centering
+\noindent\includegraphics{transport}
+\vspace*{-1em}\caption{The time-mean transport as a function of the wind stress forcing for the various barotropic (BT) and baroclinic (BC) configurations. Shadings mark the flow regimes discussed in section~\ref{sec:transport}.  ($\text{Sv} = 10^6\,\text{m}^3\,\text{s}^{-1}$)}\label{fig:transport}\vspace*{-3em}
+\end{figure}
+
+
+
+
+The results from the barotropic runs (single-layer configuration) are qualitatively similar to those of \citeA{Constantinou-Young-2017} and \citeA{Constantinou-2018}. For very weak wind stress forcing ($\tau\le0.02\,\Pa$) the transport increases linearly with wind stress. For intermediate values of wind stress forcing ($0.05\,\Pa\le\tau_0\le 6.0\,\Pa$) the flow develops transient eddies and the transport becomes less sensitive to wind stress forcing. Here, during a 120-fold increase in wind stress the time-mean transport only increases 12-fold (from $17$ to $211\,\mathrm{Sv}$). Lastly, for higher values of the wind stress forcing ($\tau\ge 7.0\,\Pa)$ the flow abruptly transitions to a new regime with higher transport, in which the transport scales as~$\tau_0^{1/2}$ (shown in figure~\ref{fig:transport}).
+
+
+
+
+The baroclinic configurations ($n\ge2$) show similar behavior among themselves and, in part, different behavior compared with the single-layer barotropic runs. For wind stress forcing values $\tau_0\le 0.5\,\Pa$ the time-mean transport remains practically insensitive to wind stress forcing; we even see a decrease of the transport with wind stress forcing (discussed further in section~\ref{sec:resultdetails1}). For $\tau_0 \ge 1.0\,\Pa$, the transport from the baroclinic configurations coincide with those from the single-layer barotropic runs, and follow the same transition to the bottom-drag-dominated, so-called, `upper-branch' regime.
+
+In summary, figure~\ref{fig:transport} suggests that there exist four different regimes (marked I through~IV):
+\begin{enumerate}
+  \item[\textbf{I}.]  The baroclinic cases show {\color{black}weak sensitivity} on the total transport with wind stress; for barotropic runs the transport is lower  than the corresponding baroclinic cases and grows linearly with wind stress.
+  \item[\textbf{II}.] The transport for barotropic cases exceeds that of baroclinic cases. The transport for barotropic runs grows at a rate much less than linear with wind stress; the transport for baroclinic runs decreases slightly.
+  \item[\textbf{III}.] The baroclinic and barotropic cases show almost identical transports; these transports continue to grow at a rate much less than linear with wind stress.
+  \item[\textbf{IV}.] The total transport both for barotropic and baroclinic cases undergoes an abrupt transition to much higher values (the `upper branch').
+\end{enumerate}
+
+Note that figure~\ref{fig:transport} only presents time-mean values. Although transport values for barotropic and baroclinic configurations are similar in certain flow regimes, the baroclinic flows are much more time-varying; more details on this in section~\ref{sec:resultdetails2}.
+
+Since all baroclinic runs show qualitatively similar behavior we will, from hereafter, concentrate only on the purely barotropic 1-layer configuration and the baroclinic 2-layer configuration.
+
+\subsection{Flow structure comparison}
+
+It is instructive to compare snapshots of statistically equilibrated flow for selected cases. Figure~\ref{fig:snapshots} shows flow speed for differing values of wind stress, one for each of the four different regimes described above. The left column of figure~\ref{fig:snapshots} shows snapshots from barotropic 1-layer configuration, while the middle and right columns show snapshots from baroclinic 2-layer configurations. Middle column shows top-layer speed, $|\bu_1|$, and right column shows the depth-averaged flow speed, $\sum_k h_k|\bu_k| \big/ h$, where $h=\sum_k h_k$ is the total depth. Note how different the flow structure is between the barotropic and baroclinic configurations, even for wind stress forcing $\tau_0\ge 1.0\,\Pa$ for which the total transport is identical amongst all layered configurations.
+
+
+\begin{figure}
+\centering
+\noindent\includegraphics{snapshots}
+\caption{Snapshots of the flow speed for 1-layer and 2-layer configurations and various wind stress forcing values. Left and middle columns show snapshots of the top-layer flow speed; right column shows the depth-averaged flow speed for the 2-layer configuration. In all baroclinic configurations ($n\ge 2$) the top-fluid layer outcrops when the flow is on the upper branch. The pink contour in panels~(k) and~(l) show the contour $h_1=0$, i.e., where the layer outcrops. Despite the dramatic difference in flow structure, the time-mean transport is the same {\color{black}between the 1-layer and 2-layer configurations} for cases with $\tau_0=1.0\,\Pa$ and $\tau_0=8.0\,\Pa$ {\color{black}respectively}.}\label{fig:snapshots}
+\end{figure}
+
+For weakly forced cases (the flow regime~I; figures~\ref{fig:snapshots}(a)-(c)) the barotropic flow is steady with no eddies and follows the geostrophic contours, $f/h$.  On the other hand, the baroclinic flow of figure~\ref{fig:snapshots}~(b,c) shows multiple jets and eddies that resemble {\color{black}homogeneous} baroclinic turbulence; the top-layer flow has a weak imprint of the bathymetry. In the flow regime~II (panels~(d)-(f)) the barotropic flow starts developing transient eddies but is steered by the bathymetry, while the baroclinic flow shows an imprint of the bathymetry itself. For wind stress values within the flow regime~III (panels~(g)-(i)) both barotropic and baroclinic flows show a strong imprint of the bathymetry while the baroclinic flow continues to be much more eddying. Finally, at the upper-branch flow regime~IV (panels~(j)-(l)) the barotropic runs develop a strong jet spanning all latitudes where wind stress is non-zero. The top-layer baroclinic flow is very different in this case: it outcrops at the surface (see panel~(k)) and is dominated by inertial eddies. These snapshots highlight the great differences in flow regimes that occur, despite the relative insensitivity of the time-mean zonal transport {\color{black}among the various layered configurations in flow regimes~III and~IV. A plausible rationalization for why higher wind stress values lead to similar time-mean transport for the various layered configurations is that more eddies imply more vertical momentum transfer through interfacial form stress leading to barotropization of the flow.}
+
+
+The following subsections describe the different processes that are involved in determining the flow structure and the time-mean total transport (figures~\ref{fig:transport} and~\ref{fig:snapshots}).
+
+
+\subsection{Transport per fluid layer and momentum balance}\label{sec:resultdetails1}
+
+First, let us see how the total time-mean transport for the baroclinic 2-layer runs  in figure~\ref{fig:transport} is split across fluid layers. Panels (a)-(b) of figure~\ref{fig:transportdecomp} show the decomposition of the time-mean transport into each fluid layer. What we immediately notice in panel~(b) is that for $\tau_0\le0.5\,\Pa$ the bottom layer has a westward (negative) time-mean transport. (We find such bottom-layer westward flows in all baroclinic runs for $n=2, 3, 4$ fluid layers; not shown.)
+
+
+
+The depth integrated zonal momentum balance implies that the wind stress (WS) at the surface must be balanced by a combination of topographic form stress (TFS) and bottom drag (BD) in the bottom layer:
+\begin{linenomath*}
+\begin{equation}
+\underbrace{\big\langle\,\tau\,\big\rangle}_{\ws} = \underbrace{\big\langle\, \overline{\pb\,\partial_x{\hb}}\,\big\rangle}_{\tfs} + \underbrace{\big\langle\, \rhom c_D\overline{|\bu_n|u_n}\,\big\rangle }_{\bd}, \label{eq:totalmombal}
+\end{equation}
+\end{linenomath*}
+where angle brackets denote layer-average and overbar denotes time-average, $\hb$ is the bathymetry, and $\pb$ is the bottom pressure.
+
+Figures~\ref{fig:transportdecomp}(c)-(d) show how the topographic form stress and bottom drag on the right-hand-side of~\eqref{eq:totalmombal} contribute to balance the wind stress on the left-hand-side. What stands out is that for most of the wind stress values, the main momentum balance is between wind stress and topographic form stress. Only in the upper-branch flow regime~IV does this momentum balance change. The flow in the upper branch barely feels the bathymetry, the topographic form stress becomes negligible, and bottom drag balances the wind stress resulting in very large time-mean transports. If the wind stress is to be balanced solely by the bottom drag then $\tau_0 \propto |\bu_n|u_n$ implying that transport should scale with $\tau_0^{1/2}$ as seen in figure~\ref{fig:transport}. {\color{black}Note, that both the `upper branch' flow regime~IV and the far left part of flow regime~I are not expected to be realized in the Southern Ocean, as they occur for unrealistically strong or weak values of the wind stress respectively.} The transition to the upper branch is precisely what was found previously in quasi-geostrophic single-layer simulations \cite{Constantinou-Young-2017,Constantinou-2018}. In the simpler quasi-geostrophic setup this transition to the upper branch is expected. One may obtain a lower bound for the volume-averaged zonal velocity and by imposing the extra restriction that the potential enstrophy power integral is balanced, one finds that the value of this lower bound increases with wind stress. Thus, for high enough wind stress values a transition to the upper branch must occur \cite{Constantinou-Young-2017}. The same transition occurs here in baroclinic runs. Regardless of whether the flow configuration is barotropic or baroclinic, the depth-averaged flow must obey this lower bound. 
+
+
+
+\begin{figure}
+\centering
+\noindent\includegraphics[width=\textwidth]{transp_mombal_KE_APE}
+\caption{(a)-(b)~The contribution to the time-mean transport from each fluid layer for the 1-layer and 2-layer configurations shown in figure~\ref{fig:transport}. (c)-(d)~The ratio of the integrated zonal momentum balanced by topographic form stress over the momentum imparted by wind stress, $\tfs/\ws$, and, similarly, the momentum balances by bottom drag, $\bd/\ws$. Note that in panel~(d) the bottom drag balance is actually slightly negative for $\tau_0\le 0.5\,\Pa$ as a result of the westward bottom-layer transport. (e)-(f)~The total kinetic energy (KE), the mean kinetic energy (MKE) and the eddy kinetic energy (EKE). (g)-(h)~The ratios  MKE$/$KE and EKE$/$KE. {\color{black}(i)-(j)~The total available potential energy (APE), the mean available potential energy (MAPE) and the eddy available potential energy (EAPE). } In all panels background shading separates the various flow regimes~I--IV described in figure~\ref{fig:transport}.}\label{fig:transportdecomp}\vspace*{-3em}
+\end{figure}
+
+
+The depth-integrated momentum balance~\eqref{eq:totalmombal} helps us elucidate the bottom-layer westward flows in baroclinic configurations. With a flat bottom, topographic form stress vanishes and thus the bottom layer zonal flow has to be, on average, eastward. Thus, westward flows only appear with non-trivial bathymetry. Provided that topographic form stress is on average positive and balances most of the wind stress, the zonal flow can have either sign (since the sign of the zonal flow does {\color{black} not} affect the topographic form stress). The topographic form stress is determined by the time-mean bottom pressure (which is in turn determined by the the time-mean of all fluid interfaces above) and the mean bottom pressure can be configured so that topographic form stress is positive even if zonal flow is negative. (Similar westward bottom zonal flows were reported also, e.g., by \citeA{Treguier-McWilliams-1990} and \citeA{Stevens-Ivchenko-1997}. There is also some observational evidence of such bottom westward flows in certain regions of the Southern Ocean \cite{Cunningham-Barker-1996}.) Because of the strong sensitivity to bathymetry, we conclude that the development of bottom westward flow is not a robust feature of this stress-driven configuration.\footnote{A single ridge of the same height does not result in any bottom-layer westward flow (not shown here) {\color{black}and, therefore, the transport does not show any decrease for baroclinic configurations in regime~II.}).} These westward flows are, however,  responsible for the slight decrease in total transport with increasing wind stress that is observed in baroclinic configurations in flow regime~II of figure~\ref{fig:transport}.
+
+
+
+
+\subsection{Time-mean--transient kinetic energy}\label{sec:resultdetails2}
+
+The differences of the barotropic and the baroclinic runs are more pronounced when we inspect the time-mean--transient energy decomposition of the kinetic energy. Consider the standing--transient flow decomposition, $\bu = \overline{\bu}+\bu'$, where prime denotes fluctuations about the time-average. Figures~\ref{fig:transportdecomp}(e)-(h) depict the integrated mean kinetic energy~(MKE), $\sum_k \int\half \rhom |\overline{\bu}_k|^2\,\mathrm{d}x\,\mathrm{d}y$, and the eddy kinetic energy~(EKE),  $\sum_k \int \half\rhom \overline{|\bu'_k|^2}\,\mathrm{d}x\,\mathrm{d}y$, with $\rhom$ the mean reference density. What stands out is that for the barotropic cases, the MKE dominates over the EKE, while for baroclinic cases the opposite is true. For barotropic cases the eddies are negligible for wind stress values within flow regime~I (in which we have linear scaling for total transport) and within flow regime~IV (upper branch). {\color{black}Figures~\ref{fig:transportdecomp}(i)-(j) show the integrated mean available potential energy~(MAPE), $\sum_k \int \half \rhom g_{k-0.5}' \overline{\eta_{k-0.5}}^2\,\mathrm{d}x\,\mathrm{d}y$, and the eddy available potential energy (EAPE), $\sum_k \int \half \rhom g_{k-0.5}' \overline{\eta_{k-0.5}'^2}\,\mathrm{d}x\,\mathrm{d}y$, where $\eta_{k-0.5}$ is the deviation from rest of the fluid interface between layers $k$ and $k-1$ and $g'_{k-0.5}$ is the corresponding reduced gravity of that interface. The available potential energy is, in general, much larger than the corresponding kinetic energy. Furthermore, in both barotropic and baroclinic runs MAPE dominates over the EAPE.}
+
+As we expect, the baroclinic cases have a  more vigorous eddy field, since baroclinic instability is very effective in diverting available potential energy to transient kinetic energy. Even for the weakly forced baroclinic cases in regime~I, after long enough spin up the top-layer fluid is accelerated to the point that the vertical shear is sufficiently large to render the flow baroclinically unstable. In contrast, figure~\ref{fig:transportdecomp}(e) shows that the barotropic runs with weak wind stress are steady without transients.  However, even for these weakly forced baroclinic cases, at equilibrium a time-mean flow must develop if topographic form stress is to balance most of the wind stress. It is interesting that the time-mean flow still accounts for about 25\% of the total kinetic energy (see figure~\ref{fig:snapshots}(h)). One might expect that the 25\% ratio is determined by the height of bathymetry. However, varying the height of the bathymetric features we found (not shown) that the ratio MKE$/$KE remains roughly constant until the bathymetry is small enough so that the topographic form stress fails to balance the wind stress and bottom drag takes over in~\eqref{eq:totalmombal}. For our channel, this transition occurs when bathymetric features are less than about 100$\,\text{m}$ tall (not shown).
+
+\begin{comment}
+\vspace*{5em}
+
+
+\noindent\navidcomment{To discuss/idea: For baroclinic cases by necessity we have that: WS$=$IFS and IFS$=$BD$+$topographic form stress. The IFS is set up by the standing eddy field and so does topographic form stress. It may be that IFS cannot grow beyond certain point and so as wind stress increases the flow has to reconfigure from a BD$<0$ to BD$>0$ to make sure that bottom layer momentum balance holds.
+
+\begin{linenomath*}
+\begin{align}
+\ws &= \underbrace{\av{p_{3/2}\partial_x{\eta_{3/2}}}}_{\ifs},
+\quad\text{(layer 1),}\\
+\ifs &= \tfs + \bd,\quad\text{(layer 2)}. 
+\end{align}
+
+\begin{equation}
+\ifs = \underbrace{\av{\overline{p_{3/2}}\,\partial_x\overline{\eta_{3/2}}}}_{\text{standing IFS}} + \underbrace{\langle \overline{p'_{3/2}\,\partial_x \eta'_{3/2}}\rangle}_{\text{transient IFS}}.
+\end{equation}
+
+\end{linenomath*}
+}
+\end{comment}
+
+
+
+\section{Discussion and Conclusions}
+
+We outlined here a hierarchy of idealized models which have been used to investigate the relative contribution of baroclinic and barotropic processes in establishing zonal transport in a Southern Ocean-like channel. The models presented here are idealized in many respects (the geometry used, the simple bathymetry, constant wind stress, and the lack of diapycnal mixing or surface buoyancy forcing). Furthermore, the bathymetry we used does include any blocked geostrophic contours, $f/h$. {\color{black}Using bathymetry with blocked $f/h$ contours results in much less transient eddy activity for the 1-layer flow configurations. In addition, as \citeA{Masich-etal-2015} found, most topographic form stress in the Southern Ocean occurs when the flow meets continents, while our setup is restricted to relatively small ridges.} Regardless {\color{black}of these idealizations}, these models capture the basic processes involving the wind-driven component of the ACC.
+
+A key outcome is that there exist parameter ranges (flow regimes~II~and~III) in which both barotropic and baroclinic configurations show similar time-mean zonal  transport values and also {\color{black}weak sensitivity} of the transport values to wind stress (figure~\ref{fig:transport}). This similarity in transport occurs despite dramatic differences in eddying flow (as can be seen, e.g., in figure~\ref{fig:snapshots} and figures~\ref{fig:transportdecomp}(e)-(h)). Our analysis shows that within flow regimes II~and~III the presence of transient eddies, regardless whether these eddies originate from baroclinic instability or other instabilities, renders the time-mean transport insensitive to wind stress forcing. 
+
+
+The similarity we find between the transport of the barotropic and the baroclinic configurations does not imply that the Southern Ocean is barotropic. Stratification and baroclinic mesoscale eddies are an integral element of the Southern Ocean; mesoscale eddies play a key role in overturning circulation, vertical heat transport and isopycnal tracer transport. However, the agreement in the values of the time-mean transport {\color{black}among flows with different layer configurations} despite differences in the eddy flow supports the notion that bathymetry actively shapes the standing eddy flow which in turn {\color{black}limits} the transport through the topographic form stress.
+
+
+The notion that a regime resembling eddy saturation can be found in a barotropic fluid challenges the widely held view that eddy saturation is a consequence of baroclinic instability acting to optimize isopycnal slopes \cite{Straub-1993,Marshall-etal-2017}. The time-mean depth-integrated momentum balance (equation~\eqref{eq:totalmombal}) implies the mean topographic form stress is generated purely from the interaction between bathymetric slopes and the time-mean flow. This is easily seen by decomposing the bottom pressure into its standing and transient components, 
+\vspace*{-0.2em}\begin{linenomath*}
+\begin{equation}
+\tfs = \big\langle\, \overline{\pb\,\partial_x{\hb}}\,\big\rangle = \big\langle\, \overline{\pb}\,\partial_x{\hb}\,\big\rangle.\vspace*{-0.2em}
+\end{equation}
+\end{linenomath*}
+Thus, transient eddies can affect the net momentum balance only if they influence time-mean flow. For symmetric bathymetric features, like the Gaussian ridges we used here, a pressure field which is symmetric upstream and downstream a ridge does not result in mean topographic form stress. {\color{black}Friction alone is able to produce asymmetric flows over symmetric ridges, and therefore topographic form stress, even without transients. However, from the line of reasoning above}, we infer that transient eddies (generated either by baroclinic instability or barotropic processes) act to sharpen and barotropize flow over topography, leading to {\color{black}an even more} asymmetric flow over ridges \cite{Youngs-etal-2017}, which can enhance the net momentum sink due to topographic form stress.  Therefore, as an alternative to the common view that baroclinic instability is an integral component of eddy saturation, we propose that eddy saturation occurs as a consequence of feedbacks between transient eddies and the mean flow which creates topographic form stress and, in turn, balances the momentum input from wind stress (figure~\ref{fig:transportdecomp}\mbox{(c)-(d)}).
+
+
+
+
+
+% For a barotropic single-layer flow there is a physical explanation for why such a transition the the upper branch is to be expected as we keep increasing the wind stress. In simpler settings one can derive an upper-bound for the topographic form stress constrained by the requirement that the energy or the potential enstrophy budgets balance. The upper-bound of the topographic form stress with the energy balance constraint turns out to be independent of wind stress; however, the upper-bound with the potential enstrophy balance constraint reduces with increasing wind stress for high-enough values of the wind stress \cite{Constantinou-Young-2017}.  Thus, the potential enstrophy conservation imposes the flow-transition to the upper-branch. Our results, shown in figure~\ref{fig:transport}, suggest that this very transition to the upper branch occurs also with baroclinic configurations. In a sense, this is expected since regardless of whether the flow configuration is purely barotropic or baroclinic, the upper-bound arguments should apply to the depth-integrated component of the flow.
+
+
+% These westward bottom-layer flows we find in the baroclinic configurations (figure~\ref{fig:transportdecomp}(b)) {\color{red}seem to \navidcomment{this was deliberately left rather vague} stem from the eddy--topographic interactions as described as `Neptune effect' \cite{Holloway-1987, Holloway-1992}. A basic ingredient for the `Neptune effect' is the existence of large-scale waves, which is facilitated with the variation of Coriolis parameter with latitude. We confirmed that running the simulation on an $f$-plane (i.e., $f=f_0$, $\beta=0$) the bottom-layer westward flows become eastward. Furthermore, the bottom-layer westward flows depend on the particular bathymetry. For example, a case with just a single ridge (of the same height) does not show any bottom-layer westward flow. Thus, we conclude by noting that the appearance or not of these bottom-layer westward flows in baroclinic configurations is not as robust. However, these westward flows are responsible for the decrease in total transport with increasing wind stress that is observed in regime~II of figure~\ref{fig:transport}.}
+
+
+
+% \appendix
+
+% \section{Derivation of blah blah}
+% \label{sec:appA}
+
+% \begin{table}[htp]
+% \caption{I hate this table; I think we don't need it anyway or I'll move it in an appendix/supplementary/github repo.}
+% \begin{center}
+% \begin{tabular}{cccc}
+% layers &  $\rho_j$ [kg$\,$m$^{-3}$] &  $H_j$ [m] & $1/\kappa_j$ [km]\\
+% \hline
+%  			1		& 1027.81 & 4000 & --- \\
+%  			2		& 1027.33, 1027.96 & 934, 3066 & 20.8 \\
+%  			3		& 1027.17, 1027.65, 1028.00 & 545, 888, 2567 & 20.1, 10.8 \\
+%  			4		& 1027.10, 1027.48, 1027.79, 1028.02 & 386, 530, 849, 2236 & 19.8, 10.3, 7.4\\
+% \end{tabular}
+% \end{center}
+% \label{default}
+% \end{table}%
+
+\vspace*{-0.5em}
+\acknowledgments
+We acknowledge fruitful discussions with Louis-Phillipe Nadeau, Callum Shakespeare, Kial Stewart, and William Young. {\color{black}We appreciate the constructive review comments by Dave Munday and an anonymous reviewer.} Furthermore, N.C.C.~is indebted to Alistair Adcroft, Angus Gibson, Bob Hallberg, and Aidan Heerdegen for their help regarding using MOM6. Numerical simulations were conducted on the Australian National Computational Infrastructure at ANU, which is supported by the Commonwealth of Australia. MOM6 code is available at \url{https://github.com/NOAA-GFDL/MOM6}. The model setup for the experiments presented can be found at \url{https://github.com/navidcy/EddySaturation-MOM6/}. Model output is available at \url{https://doi.org/10.5281/zenodo.3246030}.
+
+
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Abernathey%
+\ \BBA {} Cessi%
+}{%
+Abernathey%
+\ \BBA {} Cessi%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Abernathey-Cessi-2014}
+\APACinsertmetastar {%
+Abernathey-Cessi-2014}%
+\begin{APACrefauthors}%
+Abernathey, R.%
+\BCBT {}\ \BBA {} Cessi, P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Topographic enhancement of eddy efficiency in baroclinic
+  equilibration} {Topographic enhancement of eddy efficiency in baroclinic
+  equilibration}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{44}{8}{2107-2126}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-14-0014.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Adcroft%
+\ \protect \BOthers {.}}{%
+Adcroft%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2019}}%
+}]{%
+Adcroft-etal-2019-mom6}
+\APACinsertmetastar {%
+Adcroft-etal-2019-mom6}%
+\begin{APACrefauthors}%
+Adcroft, A.%
+, Anderson, W.%
+, Balaji, V.%
+, Blanton, C.%
+, Bushuk, M.%
+, Dufour, C\BPBI O.%
+\BDBL {}Zhang, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The {GFDL} global ocean and sea ice model {OM4.0}:
+  {Model} description and simulation features} {The {GFDL} global ocean and sea
+  ice model {OM4.0}: {Model} description and simulation features}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Adv. Model Earth Sy.}{}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2019MS001726} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Barthel%
+, Hogg%
+, Waterman%
+\BCBL {}\ \BBA {} Keating%
+}{%
+Barthel%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Barthel-etal-2017}
+\APACinsertmetastar {%
+Barthel-etal-2017}%
+\begin{APACrefauthors}%
+Barthel, A.%
+, Hogg, A\BPBI M.%
+, Waterman, S.%
+\BCBL {}\ \BBA {} Keating, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Jet--topography interactions affect energy pathways to
+  the deep {Southern Ocean}} {Jet--topography interactions affect energy
+  pathways to the deep {Southern Ocean}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{47}{7}{1799-1816}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-16-0220.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+B{\"o}ning%
+, Dispert%
+, Visbeck%
+, Rintoul%
+\BCBL {}\ \BBA {} Schwarzkopf%
+}{%
+B{\"o}ning%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+Boning-etal-2008}
+\APACinsertmetastar {%
+Boning-etal-2008}%
+\begin{APACrefauthors}%
+B{\"o}ning, C\BPBI W.%
+, Dispert, A.%
+, Visbeck, M.%
+, Rintoul, S\BPBI R.%
+\BCBL {}\ \BBA {} Schwarzkopf, F\BPBI U.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The response of the {Antarctic Circumpolar Current} to
+  recent climate change} {The response of the {Antarctic Circumpolar Current}
+  to recent climate change}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Nat. Geosci.}{1}{1}{864--869}.
+\newblock
+\begin{APACrefDOI} \doi{10.1038/ngeo362} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bracegirdle%
+\ \protect \BOthers {.}}{%
+Bracegirdle%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+Bracegirdle-etal-2013}
+\APACinsertmetastar {%
+Bracegirdle-etal-2013}%
+\begin{APACrefauthors}%
+Bracegirdle, T\BPBI J.%
+, Shuckburgh, E.%
+, Sallee, J\BHBI B.%
+, Wang, Z.%
+, Meijers, A\BPBI J\BPBI S.%
+, Bruneau, N.%
+\BDBL {}Wilcox, L\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Assessment of surface winds over the {Atlantic},
+  {Indian}, and {Pacific Ocean} sectors of the {Southern Ocean} in {CMIP5}
+  models: historical bias, forcing response, and state dependence} {Assessment
+  of surface winds over the {Atlantic}, {Indian}, and {Pacific Ocean} sectors
+  of the {Southern Ocean} in {CMIP5} models: historical bias, forcing response,
+  and state dependence}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Geophys. Res.-Atmospheres}{118}{2}{547--562}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/jgrd.50153} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Charney%
+\ \BBA {} Flierl%
+}{%
+Charney%
+\ \BBA {} Flierl%
+}{%
+{\protect \APACyear {1980}}%
+}]{%
+Charney-Flierl-1980}
+\APACinsertmetastar {%
+Charney-Flierl-1980}%
+\begin{APACrefauthors}%
+Charney, J\BPBI G.%
+\BCBT {}\ \BBA {} Flierl, G\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1980}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Oceanic analogues of large-scale atmospheric motions}
+  {Oceanic analogues of large-scale atmospheric motions}.{\BBCQ}
+\newblock
+\BIn{} B\BPBI A.~Warren\ \BBA {} C.~Wunsch\ (\BEDS), \APACrefbtitle {Evolution
+  of Physical Oceanography} {Evolution of physical oceanography}\ (\BCHAP~18).
+\newblock
+\APACaddressPublisher{}{The MIT Press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Chelton%
+, deSzoeke%
+, Schlax%
+, Naggar%
+\BCBL {}\ \BBA {} Siwertz%
+}{%
+Chelton%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1998}}%
+}]{%
+Chelton-etal-1998}
+\APACinsertmetastar {%
+Chelton-etal-1998}%
+\begin{APACrefauthors}%
+Chelton, D\BPBI B.%
+, deSzoeke, R\BPBI A.%
+, Schlax, M\BPBI G.%
+, Naggar, K\BPBI E.%
+\BCBL {}\ \BBA {} Siwertz, N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Geographical variability of the first baroclinic
+  {Rossby} radius of deformation} {Geographical variability of the first
+  baroclinic {Rossby} radius of deformation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{28}{}{433--460}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0485(1998)028<0433:GVOTFB>2.0.CO;2}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Constantinou%
+}{%
+Constantinou%
+}{%
+{\protect \APACyear {2018}}%
+}]{%
+Constantinou-2018}
+\APACinsertmetastar {%
+Constantinou-2018}%
+\begin{APACrefauthors}%
+Constantinou, N\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A barotropic model of eddy saturation} {A barotropic
+  model of eddy saturation}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{48}{2}{397-411}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-17-0182.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Constantinou%
+\ \BBA {} Young%
+}{%
+Constantinou%
+\ \BBA {} Young%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+Constantinou-Young-2017}
+\APACinsertmetastar {%
+Constantinou-Young-2017}%
+\begin{APACrefauthors}%
+Constantinou, N\BPBI C.%
+\BCBT {}\ \BBA {} Young, W\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Beta-plane turbulence above monoscale topography}
+  {Beta-plane turbulence above monoscale topography}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Fluid Mech.}{827}{}{415-447}.
+\newblock
+\begin{APACrefDOI} \doi{10.1017/jfm.2017.482} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Cunningham%
+\ \BBA {} Barker%
+}{%
+Cunningham%
+\ \BBA {} Barker%
+}{%
+{\protect \APACyear {1996}}%
+}]{%
+Cunningham-Barker-1996}
+\APACinsertmetastar {%
+Cunningham-Barker-1996}%
+\begin{APACrefauthors}%
+Cunningham, A\BPBI P.%
+\BCBT {}\ \BBA {} Barker, P\BPBI F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Evidence for westward-flowing {Weddell Sea} deep water
+  in the {Falkland} trough, western {South Atlantic}} {Evidence for
+  westward-flowing {Weddell Sea} deep water in the {Falkland} trough, western
+  {South Atlantic}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Deep Sea Res. I}{43}{5}{643-654}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/0967-0637(96)00034-9} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Donohue%
+, Tracey%
+, Watts%
+, Chidichimo%
+\BCBL {}\ \BBA {} Chereskin%
+}{%
+Donohue%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2016}}%
+}]{%
+Donohue-etal-2016}
+\APACinsertmetastar {%
+Donohue-etal-2016}%
+\begin{APACrefauthors}%
+Donohue, K\BPBI A.%
+, Tracey, K\BPBI L.%
+, Watts, D\BPBI R.%
+, Chidichimo, M\BPBI P.%
+\BCBL {}\ \BBA {} Chereskin, T\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2016}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Mean {Antarctic Circumpolar Current} transport measured
+  in {Drake Passage}} {Mean {Antarctic Circumpolar Current} transport measured
+  in {Drake Passage}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophys. Res. Lett.}{43}{}{11760--11767}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/2016GL070319} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dufour%
+\ \protect \BOthers {.}}{%
+Dufour%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Dufour-etal-2012}
+\APACinsertmetastar {%
+Dufour-etal-2012}%
+\begin{APACrefauthors}%
+Dufour, C\BPBI O.%
+, Le~Sommer, J.%
+, Zika, J\BPBI D.%
+, Gehlen, M.%
+, Orr, J\BPBI C.%
+, Mathiot, P.%
+\BCBL {}\ \BBA {} Barnier, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Standing and transient eddies in the response of the
+  {Southern Ocean} meridional overturning to the {Southern Annular Mode}}
+  {Standing and transient eddies in the response of the {Southern Ocean}
+  meridional overturning to the {Southern Annular Mode}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Climate}{25}{}{6958--6974}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JCLI-D-11-00309.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Farneti%
+, Delworth%
+, Rosati%
+, Griffies%
+\BCBL {}\ \BBA {} Zeng%
+}{%
+Farneti%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+Farneti-etal-2010}
+\APACinsertmetastar {%
+Farneti-etal-2010}%
+\begin{APACrefauthors}%
+Farneti, R.%
+, Delworth, T\BPBI L.%
+, Rosati, A\BPBI J.%
+, Griffies, S\BPBI M.%
+\BCBL {}\ \BBA {} Zeng, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The role of mesoscale eddies in the rectification of the
+  {Southern Ocean} response to climate change} {The role of mesoscale eddies in
+  the rectification of the {Southern Ocean} response to climate change}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{40}{7}{1539-1557}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/2010JPO4353.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Farneti%
+\ \protect \BOthers {.}}{%
+Farneti%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+Farneti-etal-2015}
+\APACinsertmetastar {%
+Farneti-etal-2015}%
+\begin{APACrefauthors}%
+Farneti, R.%
+, Downes, S\BPBI M.%
+, Griffies, S\BPBI M.%
+, Marsland, S\BPBI J.%
+, Behrens, E.%
+, Bentsen, M.%
+\BDBL {}Yeager, S\BPBI G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An assessment of {Antarctic Circumpolar Current} and
+  {Southern Ocean} meridional overturning circulation during 1958--2007 in a
+  suite of interannual {CORE-II} simulations} {An assessment of {Antarctic
+  Circumpolar Current} and {Southern Ocean} meridional overturning circulation
+  during 1958--2007 in a suite of interannual {CORE-II} simulations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Ocean Model.}{93}{}{84--120}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.ocemod.2015.07.009} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ferrari%
+\ \protect \BOthers {.}}{%
+Ferrari%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Ferrari-etal-2014}
+\APACinsertmetastar {%
+Ferrari-etal-2014}%
+\begin{APACrefauthors}%
+Ferrari, R.%
+, Jansen, M\BPBI F.%
+, Adkins, J\BPBI F.%
+, Burke, A.%
+, Stewart, A\BPBI L.%
+\BCBL {}\ \BBA {} Thompson, A\BPBI F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Antarctic sea ice control on ocean circulation in
+  present and glacial climates} {Antarctic sea ice control on ocean circulation
+  in present and glacial climates}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Proc. Natl. Acad. Sci. USA}{111}{24}{8753--8758}.
+\newblock
+\begin{APACrefDOI} \doi{10.1073/pnas.1323922111} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Firing%
+, Chereskin%
+\BCBL {}\ \BBA {} Mazloff%
+}{%
+Firing%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+Firing-etal-2011}
+\APACinsertmetastar {%
+Firing-etal-2011}%
+\begin{APACrefauthors}%
+Firing, Y\BPBI L.%
+, Chereskin, T\BPBI K.%
+\BCBL {}\ \BBA {} Mazloff, M\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Vertical structure and transport of the {Antarctic
+  Circumpolar Current} in {Drake Passage} from direct velocity observations}
+  {Vertical structure and transport of the {Antarctic Circumpolar Current} in
+  {Drake Passage} from direct velocity observations}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Geophys. Res.-Oceans}{116}{C8}{C08015}.
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2011JC006999} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hallberg%
+\ \BBA {} Gnanadesikan%
+}{%
+Hallberg%
+\ \BBA {} Gnanadesikan%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+Hallberg-Gnanadesikan-2001}
+\APACinsertmetastar {%
+Hallberg-Gnanadesikan-2001}%
+\begin{APACrefauthors}%
+Hallberg, R.%
+\BCBT {}\ \BBA {} Gnanadesikan, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An exploration of the role of transient eddies in
+  determining the transport of a zonally reentrant current} {An exploration of
+  the role of transient eddies in determining the transport of a zonally
+  reentrant current}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{31}{11}{3312-3330}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0485(2001)031<3312:AEOTRO>2.0.CO;2}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hallberg%
+\ \BBA {} Gnanadesikan%
+}{%
+Hallberg%
+\ \BBA {} Gnanadesikan%
+}{%
+{\protect \APACyear {2006}}%
+}]{%
+Hallberg-Gnanadesikan-2006}
+\APACinsertmetastar {%
+Hallberg-Gnanadesikan-2006}%
+\begin{APACrefauthors}%
+Hallberg, R.%
+\BCBT {}\ \BBA {} Gnanadesikan, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The role of eddies in determining the structure and
+  response of the wind-driven {Southern Hemisphere} overturning: {Results} from
+  the modeling eddies in the {Southern Ocean} ({MESO}) project} {The role of
+  eddies in determining the structure and response of the wind-driven {Southern
+  Hemisphere} overturning: {Results} from the modeling eddies in the {Southern
+  Ocean} ({MESO}) project}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{36}{}{2232-2252}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO2980.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hart%
+}{%
+Hart%
+}{%
+{\protect \APACyear {1979}}%
+}]{%
+Hart-1979}
+\APACinsertmetastar {%
+Hart-1979}%
+\begin{APACrefauthors}%
+Hart, J\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1979}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Barotropic quasi-geostrophic flow over anisotropic
+  mountains} {Barotropic quasi-geostrophic flow over anisotropic
+  mountains}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Atmos. Sci.}{36}{9}{1736-1746}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0469(1979)036<1736:BQGFOA>2.0.CO;2}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hogg%
+, Meredith%
+, Blundell%
+\BCBL {}\ \BBA {} Wilson%
+}{%
+Hogg%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+Hogg-etal-2008}
+\APACinsertmetastar {%
+Hogg-etal-2008}%
+\begin{APACrefauthors}%
+Hogg, A\BPBI M.%
+, Meredith, M\BPBI P.%
+, Blundell, J\BPBI R.%
+\BCBL {}\ \BBA {} Wilson, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Eddy heat flux in the {Southern Ocean}: {Response} to
+  variable wind forcing} {Eddy heat flux in the {Southern Ocean}: {Response} to
+  variable wind forcing}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Climate}{21}{}{608-620}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/2007JCLI1925.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hogg%
+\ \protect \BOthers {.}}{%
+Hogg%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+Hogg-etal-2015}
+\APACinsertmetastar {%
+Hogg-etal-2015}%
+\begin{APACrefauthors}%
+Hogg, A\BPBI M.%
+, Meredith, M\BPBI P.%
+, Chambers, D\BPBI P.%
+, Abrahamsen, E\BPBI P.%
+, Hughes, C\BPBI W.%
+\BCBL {}\ \BBA {} Morrison, A\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Recent trends in the {Southern Ocean} eddy field}
+  {Recent trends in the {Southern Ocean} eddy field}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Geophys. Res.-Oceans}{120}{}{1-11}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/ 2014JC010470} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Johnson%
+\ \BBA {} Bryden%
+}{%
+Johnson%
+\ \BBA {} Bryden%
+}{%
+{\protect \APACyear {1989}}%
+}]{%
+Johnson-Bryden-1989}
+\APACinsertmetastar {%
+Johnson-Bryden-1989}%
+\begin{APACrefauthors}%
+Johnson, G\BPBI C.%
+\BCBT {}\ \BBA {} Bryden, H\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1989}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On the size of the {Antarctic Circumpolar Current}} {On
+  the size of the {Antarctic Circumpolar Current}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Deep-Sea Res.}{36}{1}{39-53}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/0198-0149(89)90017-4} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Katsumata%
+}{%
+Katsumata%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+Katsumata-2017}
+\APACinsertmetastar {%
+Katsumata-2017}%
+\begin{APACrefauthors}%
+Katsumata, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Eddies observed by {Argo} floats. {Part II}: {Form}
+  stress and streamline length in the {Southern Ocean}} {Eddies observed by
+  {Argo} floats. {Part II}: {Form} stress and streamline length in the
+  {Southern Ocean}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{47}{}{2237-2250}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-17-0072.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+LaCasce%
+}{%
+LaCasce%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+LaCasce-2012}
+\APACinsertmetastar {%
+LaCasce-2012}%
+\begin{APACrefauthors}%
+LaCasce, J\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Surface quasigeostrophic solutions and baroclinic modes
+  with exponential stratification} {Surface quasigeostrophic solutions and
+  baroclinic modes with exponential stratification}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{42}{4}{569--580}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-11-0111.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+D\BPBI P.~Marshall%
+, Abhaum%
+, Maddison%
+, Munday%
+\BCBL {}\ \BBA {} Novak%
+}{%
+D\BPBI P.~Marshall%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Marshall-etal-2017}
+\APACinsertmetastar {%
+Marshall-etal-2017}%
+\begin{APACrefauthors}%
+Marshall, D\BPBI P.%
+, Abhaum, M\BPBI H\BPBI P.%
+, Maddison, J\BPBI R.%
+, Munday, D\BPBI R.%
+\BCBL {}\ \BBA {} Novak, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Eddy saturation and frictional control of the {Antarctic
+  Circumpolar Current}} {Eddy saturation and frictional control of the
+  {Antarctic Circumpolar Current}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophys. Res. Lett.}{44}{}{}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/2016GL071702} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+G\BPBI J.~Marshall%
+}{%
+G\BPBI J.~Marshall%
+}{%
+{\protect \APACyear {2003}}%
+}]{%
+Marshall-2003}
+\APACinsertmetastar {%
+Marshall-2003}%
+\begin{APACrefauthors}%
+Marshall, G\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Trends in the {Southern Annular Mode} from observations
+  and reanalyses} {Trends in the {Southern Annular Mode} from observations and
+  reanalyses}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Climate}{16}{}{4134-4143}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0442(2003)016<4134:TITSAM>2.0.CO;2}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Masich%
+, Chereskin%
+\BCBL {}\ \BBA {} Mazloff%
+}{%
+Masich%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2015}}%
+}]{%
+Masich-etal-2015}
+\APACinsertmetastar {%
+Masich-etal-2015}%
+\begin{APACrefauthors}%
+Masich, J.%
+, Chereskin, T\BPBI K.%
+\BCBL {}\ \BBA {} Mazloff, M\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Topographic form stress in the {Southern Ocean State
+  Estimate}} {Topographic form stress in the {Southern Ocean State
+  Estimate}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Geophys. Res.-Oceans}{120}{12}{7919--7933}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/ 2015JC011143} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Meredith%
+, Naveira~Garabato%
+, Hogg%
+\BCBL {}\ \BBA {} Farneti%
+}{%
+Meredith%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+Meredith-etal-2012}
+\APACinsertmetastar {%
+Meredith-etal-2012}%
+\begin{APACrefauthors}%
+Meredith, M\BPBI P.%
+, Naveira~Garabato, A\BPBI C.%
+, Hogg, A\BPBI M.%
+\BCBL {}\ \BBA {} Farneti, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Sensitivity of the overturning circulation in the
+  {Southern Ocean} to decadal changes in wind forcing} {Sensitivity of the
+  overturning circulation in the {Southern Ocean} to decadal changes in wind
+  forcing}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Climate}{25}{}{99-110}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/2011JCLI4204.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Munday%
+, Johnson%
+\BCBL {}\ \BBA {} Marshall%
+}{%
+Munday%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+Munday-etal-2013}
+\APACinsertmetastar {%
+Munday-etal-2013}%
+\begin{APACrefauthors}%
+Munday, D\BPBI R.%
+, Johnson, H\BPBI L.%
+\BCBL {}\ \BBA {} Marshall, D\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Eddy saturation of equilibrated circumpolar currents}
+  {Eddy saturation of equilibrated circumpolar currents}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{43}{}{507-532}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-12-095.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Munk%
+\ \BBA {} Palm\'en%
+}{%
+Munk%
+\ \BBA {} Palm\'en%
+}{%
+{\protect \APACyear {1951}}%
+}]{%
+Munk-Palmen-1951}
+\APACinsertmetastar {%
+Munk-Palmen-1951}%
+\begin{APACrefauthors}%
+Munk, W\BPBI H.%
+\BCBT {}\ \BBA {} Palm\'en, E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1951}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Note on the dynamics of the {Antarctic Circumpolar
+  Current}} {Note on the dynamics of the {Antarctic Circumpolar
+  Current}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Tellus}{3}{}{53-55}.
+\newblock
+\begin{APACrefDOI} \doi{10.1111/j.2153-3490.1951.tb00776.x} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Nadeau%
+\ \BBA {} Straub%
+}{%
+Nadeau%
+\ \BBA {} Straub%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Nadeau-Straub-2012}
+\APACinsertmetastar {%
+Nadeau-Straub-2012}%
+\begin{APACrefauthors}%
+Nadeau, L\BHBI P.%
+\BCBT {}\ \BBA {} Straub, D\BPBI N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Influence of wind stress, wind stress curl, and bottom
+  friction on the transport of a model {Antarctic Circumpolar Current}}
+  {Influence of wind stress, wind stress curl, and bottom friction on the
+  transport of a model {Antarctic Circumpolar Current}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{42}{1}{207--222}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-11-058.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Olbers%
+, Borowski%
+, Vo\"olker%
+\BCBL {}\ \BBA {} W\"olff%
+}{%
+Olbers%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2004}}%
+}]{%
+Olbers-etal-2004}
+\APACinsertmetastar {%
+Olbers-etal-2004}%
+\begin{APACrefauthors}%
+Olbers, D.%
+, Borowski, D.%
+, Vo\"olker, C.%
+\BCBL {}\ \BBA {} W\"olff, J\BHBI O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The dynamical balance, transport and circulation of the
+  {Antarctic Circumpolar Current}} {The dynamical balance, transport and
+  circulation of the {Antarctic Circumpolar Current}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Ant. Sci.}{4}{}{439-470}.
+\newblock
+\begin{APACrefDOI} \doi{10.1017/S0954102004002251} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pe{\~n}a~Molino%
+, Rintoul%
+\BCBL {}\ \BBA {} Mazloff%
+}{%
+Pe{\~n}a~Molino%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+PenaMolino-etal-2014}
+\APACinsertmetastar {%
+PenaMolino-etal-2014}%
+\begin{APACrefauthors}%
+Pe{\~n}a~Molino, B.%
+, Rintoul, S\BPBI R.%
+\BCBL {}\ \BBA {} Mazloff, M\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Barotropic and baroclinic contributions to along-stream
+  and across-stream transport in the {Antarctic Circumpolar Current}}
+  {Barotropic and baroclinic contributions to along-stream and across-stream
+  transport in the {Antarctic Circumpolar Current}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Geophys. Res.-Oceans}{119}{11}{8011--8028}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/2014JC010020} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Rintoul%
+\ \protect \BOthers {.}}{%
+Rintoul%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+Rintoul-etal-2014}
+\APACinsertmetastar {%
+Rintoul-etal-2014}%
+\begin{APACrefauthors}%
+Rintoul, S\BPBI R.%
+, Sokolov, S.%
+, Williams, M\BPBI J\BPBI M.%
+, Pe{\~n}a~Molino, B.%
+, Rosenberg, M.%
+\BCBL {}\ \BBA {} Bindoff, N\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{Antarctic Circumpolar Current} transport and barotropic
+  transition at {Macquarie} Ridge} {{Antarctic Circumpolar Current} transport
+  and barotropic transition at {Macquarie} ridge}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophys. Res. Lett.}{41}{20}{7254--7261}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/2014GL061880} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Risien%
+\ \BBA {} Chelton%
+}{%
+Risien%
+\ \BBA {} Chelton%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+Risien-Chelton-2008}
+\APACinsertmetastar {%
+Risien-Chelton-2008}%
+\begin{APACrefauthors}%
+Risien, C\BPBI M.%
+\BCBT {}\ \BBA {} Chelton, D\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A global climatology of surface wind and wind stress
+  fields from eight years of {QuikSCAT} scatterometer data} {A global
+  climatology of surface wind and wind stress fields from eight years of
+  {QuikSCAT} scatterometer data}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{38}{}{2379-2413}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/2008JPO3881.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Stevens%
+\ \BBA {} Ivchenko%
+}{%
+Stevens%
+\ \BBA {} Ivchenko%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+Stevens-Ivchenko-1997}
+\APACinsertmetastar {%
+Stevens-Ivchenko-1997}%
+\begin{APACrefauthors}%
+Stevens, D\BPBI P.%
+\BCBT {}\ \BBA {} Ivchenko, V\BPBI O.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The zonal momentum balance in an eddy‐resolving
+  general‐circulation model of the {Southern Ocean}} {The zonal momentum
+  balance in an eddy‐resolving general‐circulation model of the {Southern
+  Ocean}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Q. J. Roy. Meteor. Soc.}{123}{540}{929-951}.
+\newblock
+\begin{APACrefDOI} \doi{10.1002/qj.49712354008} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Straub%
+}{%
+Straub%
+}{%
+{\protect \APACyear {1993}}%
+}]{%
+Straub-1993}
+\APACinsertmetastar {%
+Straub-1993}%
+\begin{APACrefauthors}%
+Straub, D\BPBI N.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On the transport and angular momentum balance of channel
+  models of the {A}ntarctic {C}ircumpolar {C}urrent} {On the transport and
+  angular momentum balance of channel models of the {A}ntarctic {C}ircumpolar
+  {C}urrent}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{23}{}{776-782}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0485(1993)023<0776:OTTAAM>2.0.CO;2}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Swart%
+\ \BBA {} Fyfe%
+}{%
+Swart%
+\ \BBA {} Fyfe%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+Swart-Fyfe-2012}
+\APACinsertmetastar {%
+Swart-Fyfe-2012}%
+\begin{APACrefauthors}%
+Swart, N\BPBI C.%
+\BCBT {}\ \BBA {} Fyfe, J\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Observed and simulated changes in the {Southern
+  Hemisphere} surface westerly wind-stress} {Observed and simulated changes in
+  the {Southern Hemisphere} surface westerly wind-stress}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophys. Res. Lett.}{39}{16}{L16711}.
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2012GL052810} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Talley%
+}{%
+Talley%
+}{%
+{\protect \APACyear {2013}}%
+}]{%
+Talley-2013}
+\APACinsertmetastar {%
+Talley-2013}%
+\begin{APACrefauthors}%
+Talley, L\BPBI D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Closure of the global overturning circulation through
+  the {Indian}, {Pacific}, and {Southern Oceans}: {Schematics} and transports}
+  {Closure of the global overturning circulation through the {Indian},
+  {Pacific}, and {Southern Oceans}: {Schematics} and transports}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Oceanography}{26}{1}{80--97}.
+\newblock
+\begin{APACrefDOI} \doi{10.5670/oceanog.2013.07} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Tansley%
+\ \BBA {} Marshall%
+}{%
+Tansley%
+\ \BBA {} Marshall%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+Tansley-Marshall-2001}
+\APACinsertmetastar {%
+Tansley-Marshall-2001}%
+\begin{APACrefauthors}%
+Tansley, C\BPBI E.%
+\BCBT {}\ \BBA {} Marshall, D\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {On the dynamics of wind-driven circumpolar currents} {On
+  the dynamics of wind-driven circumpolar currents}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{31}{}{3258-3273}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0485(2001)031<3258:OTDOWD>2.0.CO;2}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Thompson%
+\ \BBA {} Naveira~Garabato%
+}{%
+Thompson%
+\ \BBA {} Naveira~Garabato%
+}{%
+{\protect \APACyear {2014}}%
+}]{%
+Thompson-NaveiraGarabato-2014}
+\APACinsertmetastar {%
+Thompson-NaveiraGarabato-2014}%
+\begin{APACrefauthors}%
+Thompson, A\BPBI F.%
+\BCBT {}\ \BBA {} Naveira~Garabato, A\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Equilibration of the {Antarctic Circumpolar Current} by
+  standing meanders} {Equilibration of the {Antarctic Circumpolar Current} by
+  standing meanders}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{44}{7}{1811--1828}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-13-0163.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Toggweiler%
+, Russell%
+\BCBL {}\ \BBA {} Carson%
+}{%
+Toggweiler%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+Toggweiler-etal-2006}
+\APACinsertmetastar {%
+Toggweiler-etal-2006}%
+\begin{APACrefauthors}%
+Toggweiler, J\BPBI R.%
+, Russell, J\BPBI L.%
+\BCBL {}\ \BBA {} Carson, S\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Midlatitude westerlies, atmospheric {CO}$_{2}$, and
+  climate change during the ice ages} {Midlatitude westerlies, atmospheric
+  {CO}$_{2}$, and climate change during the ice ages}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Paleoceanography}{21}{}{{A2005+}}.
+\newblock
+\begin{APACrefDOI} \doi{10.1029/2005PA001154} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Treguier%
+\ \BBA {} McWilliams%
+}{%
+Treguier%
+\ \BBA {} McWilliams%
+}{%
+{\protect \APACyear {1990}}%
+}]{%
+Treguier-McWilliams-1990}
+\APACinsertmetastar {%
+Treguier-McWilliams-1990}%
+\begin{APACrefauthors}%
+Treguier, A\BPBI M.%
+\BCBT {}\ \BBA {} McWilliams, J\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1990}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Topographic influences on wind-driven, stratified flow
+  in a $\beta$-plane channel: {An} idealized model for the {Antarctic
+  Circumpolar Current}} {Topographic influences on wind-driven, stratified flow
+  in a $\beta$-plane channel: {An} idealized model for the {Antarctic
+  Circumpolar Current}}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{20}{3}{321--343}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/1520-0485(1990)020<0321:TIOWDS>2.0.CO;2}
+  \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ward%
+\ \BBA {} Hogg%
+}{%
+Ward%
+\ \BBA {} Hogg%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+Ward-Hogg-2011}
+\APACinsertmetastar {%
+Ward-Hogg-2011}%
+\begin{APACrefauthors}%
+Ward, M\BPBI L.%
+\BCBT {}\ \BBA {} Hogg, A\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Establishment of momentum balance by form stress in a
+  wind-driven channel} {Establishment of momentum balance by form stress in a
+  wind-driven channel}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Ocean Model.}{40}{2}{133--146}.
+\newblock
+\begin{APACrefDOI} \doi{10.1016/j.ocemod.2011.08.004} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Youngs%
+, Thompson%
+, Lazar%
+\BCBL {}\ \BBA {} Richards%
+}{%
+Youngs%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2017}}%
+}]{%
+Youngs-etal-2017}
+\APACinsertmetastar {%
+Youngs-etal-2017}%
+\begin{APACrefauthors}%
+Youngs, M\BPBI K.%
+, Thompson, A\BPBI F.%
+, Lazar, A.%
+\BCBL {}\ \BBA {} Richards, K\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {{ACC} meanders, energy transfer, and mixed
+  barotropic---baroclinic instability} {{ACC} meanders, energy transfer, and
+  mixed barotropic---baroclinic instability}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{J. Phys. Oceanogr.}{47}{}{1291-1305}.
+\newblock
+\begin{APACrefDOI} \doi{10.1175/JPO-D-16-0160.1} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+More Information and Advice:
+
+%% ------------------------------------------------------------------------ %%
+%
+%  SECTION HEADS
+%
+%% ------------------------------------------------------------------------ %%
+
+% Capitalize the first letter of each word (except for
+% prepositions, conjunctions, and articles that are
+% three or fewer letters).
+
+% AGU follows standard outline style; therefore, there cannot be a section 1 without
+% a section 2, or a section 2.3.1 without a section 2.3.2.
+% Please make sure your section numbers are balanced.
+% ---------------
+% Level 1 head
+%
+% Use the \section{} command to identify level 1 heads;
+% type the appropriate head wording between the curly
+% brackets, as shown below.
+%
+%An example:
+%\section{Level 1 Head: Introduction}
+%
+% ---------------
+% Level 2 head
+%
+% Use the \subsection{} command to identify level 2 heads.
+%An example:
+%\subsection{Level 2 Head}
+%
+% ---------------
+% Level 3 head
+%
+% Use the \subsubsection{} command to identify level 3 heads
+%An example:
+%\subsubsection{Level 3 Head}
+%
+%---------------
+% Level 4 head
+%
+% Use the \subsubsubsection{} command to identify level 3 heads
+% An example:
+%\subsubsubsection{Level 4 Head} An example.
+%
+%% ------------------------------------------------------------------------ %%
+%
+%  IN-TEXT LISTS
+%
+%% ------------------------------------------------------------------------ %%
+%
+% Do not use bulleted lists; enumerated lists are okay.
+% \begin{enumerate}
+% \item
+% \item
+% \item
+% \end{enumerate}
+%
+%% ------------------------------------------------------------------------ %%
+%
+%  EQUATIONS
+%
+%% ------------------------------------------------------------------------ %%
+
+% Single-line equations are centered.
+% Equation arrays will appear left-aligned.
+
+Math coded inside display math mode \[ ...\]
+ will not be numbered, e.g.,:
+ \[ x^2=y^2 + z^2\]
+
+ Math coded inside \begin{equation} and \end{equation} will
+ be automatically numbered, e.g.,:
+ \begin{equation}
+ x^2=y^2 + z^2
+ \end{equation}
+
+
+% To create multiline equations, use the
+% \begin{eqnarray} and \end{eqnarray} environment
+% as demonstrated below.
+\begin{eqnarray}
+  x_{1} & = & (x - x_{0}) \cos \Theta \nonumber \\
+        && + (y - y_{0}) \sin \Theta  \nonumber \\
+  y_{1} & = & -(x - x_{0}) \sin \Theta \nonumber \\
+        && + (y - y_{0}) \cos \Theta.
+\end{eqnarray}
+
+%If you don't want an equation number, use the star form:
+%\begin{eqnarray*}...\end{eqnarray*}
+
+% Break each line at a sign of operation
+% (+, -, etc.) if possible, with the sign of operation
+% on the new line.
+
+% Indent second and subsequent lines to align with
+% the first character following the equal sign on the
+% first line.
+
+% Use an \hspace{} command to insert horizontal space
+% into your equation if necessary. Place an appropriate
+% unit of measure between the curly braces, e.g.
+% \hspace{1in}; you may have to experiment to achieve
+% the correct amount of space.
+
+
+%% ------------------------------------------------------------------------ %%
+%
+%  EQUATION NUMBERING: COUNTER
+%
+%% ------------------------------------------------------------------------ %%
+
+% You may change equation numbering by resetting
+% the equation counter or by explicitly numbering
+% an equation.
+
+% To explicitly number an equation, type \eqnum{}
+% (with the desired number between the brackets)
+% after the \begin{equation} or \begin{eqnarray}
+% command.  The \eqnum{} command will affect only
+% the equation it appears with; LaTeX will number
+% any equations appearing later in the manuscript
+% according to the equation counter.
+%
+
+% If you have a multiline equation that needs only
+% one equation number, use a \nonumber command in
+% front of the double backslashes (\\) as shown in
+% the multiline equation above.
+
+% If you are using line numbers, remember to surround
+% equations with \begin{linenomath*}...\end{linenomath*}
+
+%  To add line numbers to lines in equations:
+%  \begin{linenomath*}
+%  \begin{equation}
+%  \end{equation}
+%  \end{linenomath*}
