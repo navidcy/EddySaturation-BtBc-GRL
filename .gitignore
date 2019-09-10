@@ -1,0 +1,20 @@
+**/*.DS_Store
+data/
+*.ipynb_checkpoints/
+*.*~
+
+# Ignore various auxiliary tex files
+*-eps-converted-to.pdf
+*.aux
+*.key
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bak
+*.bbl
+*.blg
+*.xdv
+*.synctex
+manuscript*.pdf
