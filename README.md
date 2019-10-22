@@ -8,7 +8,7 @@ Simulations were performed using GFDL's [Modular Ocean Model version 6][mom6]. I
 
 ### Contents
 
-`figures`: folder with jupyter notebooks that produce the manuscript figures.\
+`figures`: folder with jupyter notebooks ([IJulia](https://github.com/JuliaLang/IJulia.jl)) that produce the manuscript figures.
 
 `data`: folder in which the NetCDF (`.nc`) output files are expected to be found. NetCDF files are online, doi:[10.5281/zenodo.3246030](https://doi.org/10.5281/zenodo.3246030).
 
