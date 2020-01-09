@@ -2,7 +2,7 @@
 
 A manuscript investigating the relative importance of baroclinic and barotropic processes for eddy saturation in Southern Ocean-like zonally re-entrant channel on a beta-plane.
 
-> Constantinou, N. C. and A. McC. Hogg (2019). Eddy saturation of the Southern Ocean: a baroclinic versus barotropic perspective. _Geophys. Res. Lett._, __46__., doi:[10.1029/2019GL084117](https://doi.org/10.1029/2019GL084117).
+> Constantinou, N. C. and Hogg, A. McC. (2019). Eddy saturation of the Southern Ocean: a baroclinic versus barotropic perspective. *Geophys. Res. Lett.*, **46**, 12202–12212. doi:[10.1029/2019GL084117](https://doi.org/10.1029/2019GL084117).
 
 Simulations were performed using GFDL's [Modular Ocean Model version 6][mom6]. Input and configuration files for the simulations can be found in repository [EddySaturation-MOM6][mom6-input].
 
@@ -19,4 +19,4 @@ Contributors: [Navid C. Constantinou](http://www.navidconstantinou.com) (@navidc
 
 [mom6]: https://github.com/NOAA-GFDL/MOM6
 [mom6-input]: https://github.com/navidcy/EddySaturation-MOM6
-[arXiv:1906.08442]: https://arxiv.org/abs/1906.08442
+
