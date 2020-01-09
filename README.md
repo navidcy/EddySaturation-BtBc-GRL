@@ -10,7 +10,7 @@ Simulations were performed using GFDL's [Modular Ocean Model version 6][mom6]. I
 
 `figures`: folder with jupyter notebooks ([IJulia](https://github.com/JuliaLang/IJulia.jl)) that produce the manuscript figures.
 
-`data`: folder in which the NetCDF (`.nc`) output files are expected to be found. NetCDF files are online, doi:[10.5281/zenodo.3246030](https://doi.org/10.5281/zenodo.3246030).
+`data`: folder in which the NetCDF (`.nc`) output files are expected to be found. NetCDF files are online, doi:[10.5281/zenodo.3246030](https://doi.org/10.5281/zenodo.3246030). The executable of MOM6 used for these simulations was compiled by cloning [MOM6-examples repo @ commit 6526357](https://github.com/NOAA-GFDL/MOM6-examples/tree/65263572cceeeb18d930ab59fd7f6cddc4642eeb).
 
 `submissions`: folder with all manuscript versions submitted to GRL and to arXiv.
 
